@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юрий Гагарин | Первый в космосе</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --space-black: #020205;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--space-black);
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон со звездами */
+        #stars-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+
+        /* Шапка сайта */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--space-black)),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 30px var(--neon-blue);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); }
+            to { text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue), 0 0 10px #fff; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            color: var(--neon-pink);
+            text-transform: uppercase;
+        }
+
+        /* Контентная область */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            border-left: 3px solid var(--neon-pink);
+            background: rgba(255, 0, 255, 0.05);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--neon-pink);
+        }
+
+        /* Фотография */
+        .portrait {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            border: 5px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stars-canvas"></div>
+
+    <header>
+        <h1>Юрий Гагарин</h1>
+        <p class="subtitle">Поехали!</p>
+    </header>
+
+    <div class="container">
+        <section class="info-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Yuri_Gagarin_in_Sweden.jpg" alt="Юрий Гагарин" class="portrait">
+            <h2>Легенда космоса</h2>
+            <p>
+                12 апреля 1961 года Юрий Алексеевич Гагарин стал первым человеком в мировой истории, совершившим полёт в космическое пространство. 
+                Ракета-носитель «Восток» с кораблём «Восток-1», на борту которого находился Гагарин, была запущена с космодрома Байконур.
+            </p>
+        </section>
+
+        <section class="info-card">
+            <h2>Миссия Восток-1</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">108</span>
+                    минут в полете
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">302 км</span>
+                    макс. высота
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1961</span>
+                    год триумфа
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2>Интересные факты</h2>
+            <ul>
+                <li>Во время старта Гагарин произнес знаменитое слово: <strong>«Поехали!»</strong>.</li>
+                <li>Из-за сбоя в системе торможения спускаемый аппарат приземлился не в заданном районе, а в Саратовской области.</li>
+                <li>После полета Гагарин стал мировой знаменитостью и посетил более 30 стран.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Проект создан в память о первом космонавте Земли</p>
+    </footer>
+
+</body>
+</html>
